@@ -3,7 +3,10 @@ import './Form.css';
 
 const Form = () => {
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
-  const months = Array.from({ length: 12 }, (_, i) => i + 1);
+  const months = [
+    "January", "February", "March", "April", "May", "June", 
+    "July", "August", "September", "October", "November", "December"
+  ];
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 20 }, (_, i) => currentYear + i);
 
@@ -31,9 +34,15 @@ const Form = () => {
         </div>
       </div>
 
-      <div className="form-group">
-        <label htmlFor="employeeFloor">Employee Floor</label>
-        <input type="text" id="employeeFloor" name="employeeFloor" placeholder="Enter Employee Floor" required />
+      <div className="form-group form-group-horizontal">
+        <div className="form-field">
+          <label htmlFor="employeeFloor">Employee Floor</label>
+          <input type="text" id="employeeFloor" name="employeeFloor" placeholder="Enter Employee Floor" required />
+        </div>
+        <div className="form-field">
+          <label htmlFor="unit">Unit</label>
+          <input type="text" id="unit" name="unit" placeholder="Enter Unit" required />
+        </div>
       </div>
 
       <div className="form-group form-group-horizontal">
