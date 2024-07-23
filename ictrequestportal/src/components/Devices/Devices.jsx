@@ -1,15 +1,3 @@
-// import React from 'react'
-// import './Devices.css'
-// const Devices = () => {
-//   return (
-//     <div>
-//       Which Hardware items do you need?
-//     </div>
-//   )
-// }
-
-// export default Devices
-
 import React, { useState } from 'react';
 import './Devices.css';
 
@@ -40,13 +28,14 @@ const Devices = () => {
 
   return (
     <div className="devices">
-      <h3>Which device items do you need?</h3>
+      <h3 className="devices-title">What hardware items do you need?</h3>
       <div className="device-options">
         {devices.map((device, index) => (
           <div key={index} className="form-group">
-            <label>
+            <label className="device-label">
               <input
                 type="checkbox"
+                className="device-checkbox"
                 value={device}
                 onChange={() => handleCheckboxChange(device)}
               />
@@ -55,15 +44,17 @@ const Devices = () => {
           </div>
         ))}
         <div className="form-group">
-          <label>
+          <label className="device-label">
             <input
               type="checkbox"
+              className="device-checkbox"
               value="Other"
               onChange={() => handleCheckboxChange('Other')}
             />
             Other:
             <input
               type="text"
+              className="device-input"
               value={otherDevice}
               onChange={handleOtherDeviceChange}
               placeholder="Specify other device"

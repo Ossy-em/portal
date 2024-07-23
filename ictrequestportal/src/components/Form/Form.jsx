@@ -1,50 +1,74 @@
-import React from 'react'
-import './Form.css'
+import React from 'react';
+import './Form.css';
+
 const Form = () => {
+  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+  const months = Array.from({ length: 12 }, (_, i) => i + 1);
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 20 }, (_, i) => currentYear + i);
+
   return (
-    <div>
-      <form className="request-form">
-      <div className="form-group">
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" required />
+    <form className="request-form">
+      <div className="form-group form-group-horizontal">
+        <div className="form-field">
+          <label htmlFor="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required />
+        </div>
+        <div className="form-field">
+          <label htmlFor="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" required />
+        </div>
       </div>
 
-      <div className="form-group">
-        <label htmlFor="lastName">Last Name</label> 
-        <input type="text" id="lastName" name="lastName" required />
+      <div className="form-group form-group-horizontal">
+        <div className="form-field">
+          <label htmlFor="department">Department</label>
+          <input type="text" id="department" name="department" placeholder="Enter Department" required />
+        </div>
+        <div className="form-field">
+          <label htmlFor="manager">Manager</label>
+          <input type="text" id="manager" name="manager" placeholder="Enter Manager Name" required />
+        </div>
       </div>
-      
-      <div className="form-group">
-        <label htmlFor="department">Division/Unit/Department</label>
-        <input type="text" id="department" name="department" required />
-      </div>
-      
-      <div className="form-group">
-        <label htmlFor="manager">Director Head</label>
-        <input type="text" id="manager" name="manager" required />
-      </div>
-      
+
       <div className="form-group">
         <label htmlFor="employeeFloor">Employee Floor</label>
-        <input type="text" id="employeeFloor" name="employeeFloor" required />
+        <input type="text" id="employeeFloor" name="employeeFloor" placeholder="Enter Employee Floor" required />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="desiredDate">Purpose</label>
-        <input type="text" id="desiredDate" name="desiredDate" required />
-      </div>
-      
-      <div className="form-group">
-        <label htmlFor="desiredDate">Desired Date</label>
-        <input type="date" id="desiredDate" name="desiredDate" required />
+      <div className="form-group form-group-horizontal">
+        <div className="form-field">
+          <label htmlFor="day">Day</label>
+          <select id="day" name="day" required>
+            <option value="" disabled selected>Select Day</option>
+            {days.map(day => (
+              <option key={day} value={day}>{day}</option>
+            ))}
+          </select>
+        </div>
+        <div className="form-field">
+          <label htmlFor="month">Month</label>
+          <select id="month" name="month" required>
+            <option value="" disabled selected>Select Month</option>
+            {months.map(month => (
+              <option key={month} value={month}>{month}</option>
+            ))}
+          </select>
+        </div>
+        <div className="form-field">
+          <label htmlFor="year">Year</label>
+          <select id="year" name="year" required>
+            <option value="" disabled selected>Select Year</option>
+            {years.map(year => (
+              <option key={year} value={year}>{year}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      
       <button type="submit">Submit Request</button>
+    </form>
+  );
+};
 
-      </form>
-    </div>
-  )
-}
-
-export default Form
+export default Form;

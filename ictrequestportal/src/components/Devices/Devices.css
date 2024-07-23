@@ -1,0 +1,44 @@
+/* Devices.css */
+
+.devices {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .devices-title {
+    margin-bottom: 15px;
+    font-size: 1.12rem;
+    color: #333;
+  }
+  
+  .device-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .device-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .device-checkbox {
+    margin-right: 10px;
+  }
+  
+  .device-input {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
