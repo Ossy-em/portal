@@ -5,15 +5,23 @@ import Form from '../Form/Form';
 import Devices from '../Devices/Devices';
 import './StaffRequestForm.css';
 
+
 const StaffRequestForm = () => {
   return (
-    <div className="staff-request-form">
+    <div>
+
+      <div className="staff-request-form">
       <CompanyName />
       <Header />
       <Form />
       <Devices />
     </div>
-  );
+    
+    <div className='Login-page'>
+
+    </div>
+    </div>
+    );
 };
 
 export default StaffRequestForm;
