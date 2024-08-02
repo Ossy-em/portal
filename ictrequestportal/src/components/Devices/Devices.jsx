@@ -33,33 +33,39 @@ const Devices = () => {
         {devices.map((device, index) => (
           <div key={index} className="form-group">
             <label className="device-label">
-              <input
-                type="checkbox"
-                className="device-checkbox"
-                value={device}
-                onChange={() => handleCheckboxChange(device)}
-              />
+              <div className="device-list">
+                <input
+                  type="checkbox"
+                  className="device-checkbox"
+                  value={device}
+                  onChange={() => handleCheckboxChange(device)}
+                />
+              </div>
               {device}
             </label>
           </div>
         ))}
         <div className="form-group">
           <label className="device-label">
-            <input
-              type="checkbox"
-              className="device-checkbox"
-              value="Other"
-              onChange={() => handleCheckboxChange('Other')}
-            />
+            <div className="device-list">
+              <input
+                type="checkbox"
+                className="device-checkbox"
+                value="Other"
+                onChange={() => handleCheckboxChange('Other')}
+              />
+            </div>
             Other:
-            <input
-              type="text"
-              className="device-input"
-              value={otherDevice}
-              onChange={handleOtherDeviceChange}
-              placeholder="Specify other device"
-              disabled={!selectedDevices.includes('Other')}
-            />
+            <div className="device-list">
+              <input
+                type="text"
+                className="device-input"
+                value={otherDevice}
+                onChange={handleOtherDeviceChange}
+                placeholder="Specify other device"
+                disabled={!selectedDevices.includes('Other')}
+              />
+            </div>
           </label>
         </div>
       </div>
