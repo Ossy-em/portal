@@ -32,3 +32,33 @@
     cursor: pointer;
   }
   
+  .staff-admin-con{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px ;
+    
+  }
+
+  .staff-admin-con {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .staff-admin-con button {
+    width: 25%;
+    color: black;
+    margin-left: 15%;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+
+  .active {
+    background-color: green;
+    color: white !important;
+    transition: background-color 0.15s ease-in-out;
+  }
+  
+  
+  
