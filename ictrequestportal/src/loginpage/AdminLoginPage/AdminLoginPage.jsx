@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-// import './LoginPage.css';
-import "./AdminLoginPage.css";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../utils/Firebase';
+import "../Admin&StaffLoginPage.css"; 
 
 const AdminLoginPage = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder for form submission logic
-    console.log('Username:', username);
-    console.log('Password:', password);
-    
-    // Assuming login is successful
-    navigate('/staff-request');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log('Login successful');
+      navigate('/admin-dashboard'); // Change the route as needed
+    } catch (error) {
+      console.error('Error logging in:', error);
+      setError(error.message);
+    }
   };
 
   const containerVariants = {
@@ -37,45 +41,46 @@ const AdminLoginPage = () => {
 
   return (
     <motion.div
-      className="login-staf"
+      className="login-adminStaff"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-     
-      <form onSubmit={handleSubmit}>
+      <form className='loginForm' onSubmit={handleSubmit}>
         <motion.input
-        className='in-staff'
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          className='in-adminStaff'
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete='email'
           variants={inputVariants}
           initial="hidden"
           animate="visible"
         />
         <motion.input 
-        className='in-staff'
+          className='in-adminStaff'
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete='current'
           variants={inputVariants}
           initial="hidden"
           animate="visible"
         />
+        {error && <p className="error-message">{error}</p>}
         <motion.button 
-        className="input-login"
+          className="input-login"
           type="submit" 
           variants={buttonVariants} 
           initial="hidden" 
           animate="visible"
           whileHover="hover"
         >
-           Login
-           
+          Login
         </motion.button>
       </form>
     </motion.div>

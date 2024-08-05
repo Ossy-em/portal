@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import StaffLoginPage from './StaffLoginPage/StaffLoginPage';
-import AdminLoginPage from './AdminLoginPage/AdminLoginPage';
-import './LoginPage.css';
-const LoginPage = () => {
-  const [view, setView] = useState('staff'); // Default to 'staff' view
+import StaffSignUpPage from './StaffSignupPage/StaffSignupPage'; 
+import AdminSignUpPage from './AdminSignupPage/AdminSignupPage'; 
+import './SignupPage.css';
+
+const SignUpPage = () => {
+  const [view, setView] = useState('staff'); 
 
   const handleStaffClick = () => {
     setView('staff');
@@ -14,7 +15,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="signup-container">
       <div className="staff-admin-con">
         <button
           className={view === 'staff' ? 'active' : ''}
@@ -29,10 +30,10 @@ const LoginPage = () => {
           Admin
         </button>
       </div>
-      {view === 'staff' && <StaffLoginPage />}
-      {view === 'admin' && <AdminLoginPage/>}
+      {view === 'staff' && <StaffSignUpPage />}
+      {view === 'admin' && <AdminSignUpPage />}
     </div>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

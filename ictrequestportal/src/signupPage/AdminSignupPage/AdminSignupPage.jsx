@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../utils/Firebase';
-import "../Admin&StaffLoginPage.css"; 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../utils/Firebase';  
+import "../Admin&StaffSignupPage.css";
 
-const StaffLoginPage = () => {
+const AdminSignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -14,11 +14,11 @@ const StaffLoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log('Login successful');
-      navigate('/staff-request');
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log('Sign up successful');
+      navigate('/admin-dashboard');
     } catch (error) {
-      console.error('Error logging in:', error);
+      console.error('Error signing up:', error);
       setError(error.message);
     }
   };
@@ -41,14 +41,14 @@ const StaffLoginPage = () => {
 
   return (
     <motion.div
-      className="login-adminStaff"
+      className="signup-admin-staff"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <form className='loginForm' onSubmit={handleSubmit}>
+      <form className='signupForm' onSubmit={handleSubmit}>
         <motion.input
-          className='in-adminStaff'
+          className='signup-adminStaff'
           type="email"
           placeholder="Email"
           value={email}
@@ -60,7 +60,7 @@ const StaffLoginPage = () => {
           animate="visible"
         />
         <motion.input 
-          className='in-adminStaff'
+          className='signup-adminStaff'
           type="password"
           placeholder="Password"
           value={password}
@@ -73,18 +73,18 @@ const StaffLoginPage = () => {
         />
         {error && <p className="error-message">{error}</p>}
         <motion.button 
-          className="input-login"
+          className="input-signup"
           type="submit" 
           variants={buttonVariants} 
           initial="hidden" 
           animate="visible"
           whileHover="hover"
         >
-          Login
+          Sign Up
         </motion.button>
       </form>
     </motion.div>
   );
 };
 
-export default StaffLoginPage;
+export default AdminSignUpPage;
