@@ -75,7 +75,7 @@ const Form = () => {
         </div>
       </div>
 
-      <button type="submit">Submit Request</button>
+
     </form>
   );
 };

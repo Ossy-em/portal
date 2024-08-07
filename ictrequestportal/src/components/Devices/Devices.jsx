@@ -27,6 +27,7 @@ const Devices = () => {
   };
 
   return (
+    
     <div className="devices">
       <h3 className="devices-title">What hardware items do you need?</h3>
       <div className="device-options">
@@ -65,10 +66,12 @@ const Devices = () => {
                 placeholder="Specify other device"
                 disabled={!selectedDevices.includes('Other')}
               />
+                  
             </div>
           </label>
         </div>
       </div>
+      <button type="submit">Submit Request</button>
     </div>
   );
 };

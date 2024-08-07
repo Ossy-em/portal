@@ -1,0 +1,21 @@
+.view-request {
+    padding: 20px;
+}
+
+.view-request table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.view-request table, th, td {
+    border: 1px solid #ddd;
+}
+
+.view-request th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.view-request th {
+    background-color: #ebf3ee;
+}
